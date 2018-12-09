@@ -1,0 +1,20 @@
+# JAVA_NIO
+nio简单易懂优化后的例子
+
+Java原生NIO使用例子
+1、含有File文件读写
+2、含有TCP服务，通道数据交互
+
+nioTests含有File测试：
+1、getChannel获得FileChannel获得文件通道
+2、创建得到ByteBuffer字节缓冲区，添加内容到buffer
+3、通过控制buffer的position下标与设置limit指定操作字节位数
+4、通过文件流读取或写入，读与写都是对是字节缓冲buffer操作。通过Charset可以将buffer转换成实体内容
+
+nio.tcp包含有nio的tcp测试
+1、ServerSocketChannel通道类比ServerSocket
+2、连接会创建SocketChannel类比Socket
+3、register通道注册到选择器Selector中，选择注册方式OP_ACCEPT等待连接OP_READ等待读取
+4、迭代选择器中的通道等待客户端连接即可
+5、连接建立后可以键值再次注册为读取监听，能获得buffer对象接下来操作如上
+6、client操作稍稍简单一些，SocketChannel类比Socket连接成功后进行读写操作
